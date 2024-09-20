@@ -1,46 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annmakar <annmakar@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 19:57:56 by annmakar          #+#    #+#             */
-/*   Updated: 2024/09/19 20:25:58 by annmakar         ###   ########.fr       */
+/*   Created: 2024/09/19 19:34:01 by annmakar          #+#    #+#             */
+/*   Updated: 2024/09/20 16:47:23 by annmakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*l;
+	char	*s3;
 	int		i;
+	size_t	h;
+	size_t	k;
+	int		g;
 
 	i = 0;
-	if (s == NULL)
+	g = 0;
+	h = ft_strlen(s1);
+	k = ft_strlen(s2);
+	s3 = (char *)malloc((sizeof(*s1) * h) + (sizeof(*s2) * k) + 1);
+	if (s3 == NULL)
 		return (NULL);
-	l = (char *)malloc(ft_strlen(s) + 1);
-	if (l == NULL)
-		return (NULL);
-	while (s[i])
+	while (s1[i] != '\0')
 	{
-		l[i] = s[i];
+		s3[i] = s1[i];
 		i++;
 	}
-	l[i] = '\0';
-	return (l);
+	while (s2[g] != '\0')
+	{
+		s3[i] = s2[g];
+		i++;
+		g++;
+	}
+	return (s3);
 }
 
 // int	main(void)
 // {
-// 	char	*r;
-// 	char	*h;
+// 	const char	*s1 = "Hello, ";
+// 	const char	*s2 = "World!";
+// 	char	*r = ft_strjoin(s1, s2);
 
-// 	h = "Hello, BOO!_";
-// 	r = ft_strdup(h);
 // 	printf("%s\n", r);
+// 	free(r);
 
-// 	free (r);
 // 	return (0);
 // }

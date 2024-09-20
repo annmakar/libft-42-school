@@ -1,46 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annmakar <annmakar@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 19:57:56 by annmakar          #+#    #+#             */
-/*   Updated: 2024/09/19 20:25:58 by annmakar         ###   ########.fr       */
+/*   Created: 2024/09/19 18:26:21 by annmakar          #+#    #+#             */
+/*   Updated: 2024/09/20 16:47:13 by annmakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*l;
-	int		i;
+	char	*sub;
+	size_t	i;
 
 	i = 0;
-	if (s == NULL)
+	sub = (char *)malloc(sizeof(*s) * (len + 1));
+	if (sub == NULL)
 		return (NULL);
-	l = (char *)malloc(ft_strlen(s) + 1);
-	if (l == NULL)
-		return (NULL);
-	while (s[i])
+	while (i < len && s[start] != '\0')
 	{
-		l[i] = s[i];
+		sub[i] = s[start];
 		i++;
+		start++;
 	}
-	l[i] = '\0';
-	return (l);
+	return (sub);
 }
 
 // int	main(void)
 // {
-// 	char	*r;
-// 	char	*h;
+// 	char	*l;
+// 	char	s[25] = "Happy!ToSee U";
+// 	int	start = 4;
 
-// 	h = "Hello, BOO!_";
-// 	r = ft_strdup(h);
-// 	printf("%s\n", r);
+// 	l = ft_substr(s, start, 8);
+// 	printf("%s\n", l);
+// 	free(l);
 
-// 	free (r);
 // 	return (0);
 // }

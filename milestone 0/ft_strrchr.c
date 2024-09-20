@@ -6,7 +6,7 @@
 /*   By: annmakar <annmakar@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:11:04 by annmakar          #+#    #+#             */
-/*   Updated: 2024/09/17 19:56:36 by annmakar         ###   ########.fr       */
+/*   Updated: 2024/09/19 21:42:35 by annmakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int				i;
 	char			*sn;
 	unsigned char	target;
 
 	sn = (char *)s;
-	i = 0;
-	target = c;
-	while (sn[i] != '\0')
-		i++;
-	while (sn[i] != target && i > 0)
-		i--;
-	if (sn[i] != target && i == 0)
-		return (NULL);
-	return (&sn[i]);
+	target = (unsigned char)c;
+	while (*sn != '\0')
+		sn++;
+	while (sn >= s)
+	{
+		if (*sn == target)
+			return (sn);
+		sn--;
+	}
+	return (NULL);
 }
 
 // int	main(void)
 // {
 // 	char	l[50] = "2 flying dragons";
-// 	int	k = 'g';
+// 	int	k = '3';
 
 // 	printf("%s", ft_strrchr(l, k));
 // 	return (0);

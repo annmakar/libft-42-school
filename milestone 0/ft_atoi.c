@@ -6,7 +6,7 @@
 /*   By: annmakar <annmakar@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:10:22 by annmakar          #+#    #+#             */
-/*   Updated: 2024/09/17 20:05:58 by annmakar         ###   ########.fr       */
+/*   Updated: 2024/09/19 18:46:47 by annmakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ int	ft_atoi(const char *nptr)
 {
 	long long	result;
 	int			sign;
-	int			sign_count;
 
 	result = 0;
 	sign = 1;
-	sign_count = 0;
 	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
 		nptr++;
 	if (*nptr == '+' || *nptr == '-')

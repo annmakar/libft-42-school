@@ -1,46 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annmakar <annmakar@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 19:57:56 by annmakar          #+#    #+#             */
-/*   Updated: 2024/09/19 20:25:58 by annmakar         ###   ########.fr       */
+/*   Created: 2024/09/20 16:44:06 by annmakar          #+#    #+#             */
+/*   Updated: 2024/09/20 18:04:33 by annmakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+int	count_words(char *s, char c)
 {
-	char	*l;
-	int		i;
+	int	l;
+	int	count;
 
-	i = 0;
-	if (s == NULL)
-		return (NULL);
-	l = (char *)malloc(ft_strlen(s) + 1);
-	if (l == NULL)
-		return (NULL);
-	while (s[i])
+	l = 0;
+	count = 0;
+	while (s[l] != '\0')
 	{
-		l[i] = s[i];
-		i++;
+		if (s[l] == c)
+			count++;
+		l++;
 	}
-	l[i] = '\0';
-	return (l);
+	return (count + 1);
 }
 
-// int	main(void)
-// {
-// 	char	*r;
-// 	char	*h;
+char	**ft_split(char const *s, char c)
+{
 
-// 	h = "Hello, BOO!_";
-// 	r = ft_strdup(h);
-// 	printf("%s\n", r);
-
-// 	free (r);
-// 	return (0);
-// }
+}

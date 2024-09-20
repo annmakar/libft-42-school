@@ -1,46 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: annmakar <annmakar@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 19:57:56 by annmakar          #+#    #+#             */
-/*   Updated: 2024/09/19 20:25:58 by annmakar         ###   ########.fr       */
+/*   Created: 2024/09/19 20:33:44 by annmakar          #+#    #+#             */
+/*   Updated: 2024/09/20 18:03:38 by annmakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*l;
+	char	*new;
 	int		i;
+	int		e;
+	int		l;
 
 	i = 0;
-	if (s == NULL)
+	l = 0;
+	e = ft_strlen(s1) - 1;
+	if (s1 == NULL)
 		return (NULL);
-	l = (char *)malloc(ft_strlen(s) + 1);
-	if (l == NULL)
-		return (NULL);
-	while (s[i])
-	{
-		l[i] = s[i];
+	while (ft_strchr(set, s1[i]))
 		i++;
+	while (e >= 1 && ft_strchr(set, s1[e]))
+		e--;
+	new = (char *)malloc(sizeof(new) * (e - i + 2));
+	if (new == NULL)
+		return (NULL);
+	while (i <= e)
+	{
+		new[l] = s1[i];
+		i++;
+		l++;
 	}
-	l[i] = '\0';
-	return (l);
+	new[l] = '\0';
+	return (new);
 }
 
 // int	main(void)
 // {
-// 	char	*r;
-// 	char	*h;
+// 	const char	*s1 = "FilLdfuhsufFilL";
+// 	const char	*set = "FilL";
 
-// 	h = "Hello, BOO!_";
-// 	r = ft_strdup(h);
-// 	printf("%s\n", r);
-
-// 	free (r);
+// 	printf("%s\n", ft_strtrim(s1, set));
+// 	free(ft_strtrim(s1, set));
 // 	return (0);
 // }

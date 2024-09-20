@@ -6,13 +6,13 @@
 /*   By: annmakar <annmakar@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:07:15 by annmakar          #+#    #+#             */
-/*   Updated: 2024/09/17 19:56:21 by annmakar         ###   ########.fr       */
+/*   Updated: 2024/09/19 19:25:03 by annmakar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
@@ -41,14 +41,14 @@ size_t	ft_strlcat(char *dst, char *src, size_t size)
 
 // int	main(void)
 // {
-// 	char	dst[7] = "Hello. ";
+// 	char	dst[15] = "Hello. ";
 // 	char	src[] = "World";
 // 	size_t	size = sizeof(dst);
 
 // 	size_t	result = ft_strlcat(dst, src, size);
 
 // 	printf("Concatenated string: %s\n", dst);
-// 	printf("Total length: %u\n", result);
+// 	printf("Total length: %zu\n", result);
 
 // 	return (0);
 // }
